@@ -1,7 +1,6 @@
-
 <template>
   <div>
-    <h1>Listado de Películas Favoritas</h1>
+    <h1 v-if="favorites && favorites.length > 0">Listado de Películas Favoritas</h1>
     <ul>
       <li v-for="favorite in favorites" :key="favorite.id">
         {{ favorite.title }}
@@ -12,28 +11,12 @@
 
 <script>
 export default {
-  data() {
-    return {
-      favorites: [],
-    }
+  props: {
+    favorites: Array,
   },
   mounted() {
-    this.fetchFavorites()
+    console.log('Componente FavoritesList montado. Favoritos:', this.favorites);
   },
-  methods: {
-    async fetchFavorites() {
-      try {
-        const response = await this.$axios.get('/account/{account_id}/favorite/movies', {
-          params: {
-            api_key: '3279c8a95e8766108057e3c654d5b2ea',
-            session_id: 'shandiam',
-          },
-        })
-        this.favorites = response.data.results
-      } catch (error) {
-        console.error('Error al obtener el listado de películas favoritas', error)
-      }
-    },
-  },
-}
+};
+
 </script>
