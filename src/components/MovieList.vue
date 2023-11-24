@@ -11,6 +11,7 @@
 </template>
 
 <script>
+import { addToFavorites } from 'src/favoritesService.js';
 export default {
   data() {
     return {
@@ -20,10 +21,10 @@ export default {
   methods: {
     addToFavorites(movieId) {
       const movieToAdd = this.movies.find(movie => movie.id === movieId);
-      if (movieToAdd) {
-        this.$emit('movieAddedToFavorites', movieToAdd);
-        console.log('Película ${movieToAdd.id} agregada a favoritos');
-      }
+    if (movieToAdd) {
+      addToFavorites(movieToAdd);
+      console.log('Película ${movieId} agregada a favoritos');
+    }
     },
     async fetchMovies() {
       try {

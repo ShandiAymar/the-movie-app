@@ -20,6 +20,8 @@
 
 <script>
 import { defineComponent } from 'vue';
+import { ref } from 'vue';
+import { favorites } from 'src/favoritesService.js';
 
 export default defineComponent({
   name: 'IndexPage',
