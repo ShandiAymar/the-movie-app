@@ -6,6 +6,10 @@
       style="width: 200px; height: 200px"
     >
   </q-page>
+  <div>
+    <q-btn to="/movies">Ver Listado de Películas</q-btn>
+    <q-btn to="/favorites">Ver Favoritos</q-btn>
+  </div>
 </template>
 
 <script>
